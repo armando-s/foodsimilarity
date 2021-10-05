@@ -1,2 +1,8 @@
 # foodsimilarity
-Training a neural network to identify which two of three food images are most similar to each other
+Training a neural network to recognize which two dishes taste most similar to each other based on images of three dishes. 
+
+# Task
+Given are 10000 pictures of dishes. The goal is to learn which dishes are similar in taste based on the image alone. This is evaluated by comparing triplets and deciding which of the last two images is more similar in taste to the first. The labels were assigned manually by human raters. The task is not trivial for a human, as there are many cases where all three images show similar tasting dishes or all three images show completely different dishes. This must be taken into account when evaluating the performance, since one cannot expect near-perfect results in this problem.
+
+# Data
+Unfortunately the dataset cannot be made public (at least not by me), but the solution and techniques apply to many similar tasks and datasets. In total, the dataset contains 10000 images numbered from 00000.jpg to 09999.jpg. In addition, there are 178574 manually labeled images, of which 119030 are included in the training set that we have access to, while we cannot access the labels of the remaining 59544 images, but must predict them. The training set is provided as a .txt file with 119030 lines and 3 numbers per line. Those number are the names of the images, the first one is the anchor to which the other two are compared, the second one is the more similar in taste to the anchor and the third one is the less similar in taste compared to the anchor picture, e.g. 00523 07345 01213, means that image number 07345 is more similar in taste to 00523 than 01213 is. 
